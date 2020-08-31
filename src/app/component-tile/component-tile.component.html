@@ -1,0 +1,39 @@
+<div class='filter'>
+<h5>Filter</h5>
+<p>Launch Year</p>
+
+<ul>
+  <li  *ngFor='let item of years'>
+    <button type="button" class="btn btn-success" (click)='filteryear(item)'>{{item}}</button></li>
+</ul>
+
+<p>Sucess Launch </p>
+<ul>
+  <li> 
+<button type="button" class="btn btn-success" (click)='filterbyLaunch(true)'>True</button></li>
+<li><button type="button" class="btn btn-success" (click)='filterbyLaunch(false)'>False</button></li> 
+</ul>
+<p>Sucess Landing </p>
+<ul>
+  <li> 
+<button type="button" class="btn btn-success" (click)='filterbyLanding(true)'>True</button></li>
+<li><button type="button" class="btn btn-success" (click)='filterbyLanding(false)'>False</button></li> 
+</ul>
+</div>
+
+<div *ngFor='let i of filteredArr' class="container">
+
+    <div class="card row">
+      <div class="col" style="max-width: 300px;">
+    <a href=""><img src="{{i.links.mission_patch_small}}" style="max-height:300px;" /></a>
+    <h4>{{i.mission_name}}#{{i.flight_number}}</h4> 
+      <br>
+    
+    <h5>Mission ID {{i.mission_id}}</h5>
+    <h5>Year Launch: {{i.launch_year}}</h5>
+    <h5>Successful Launch: {{i.launch_success}}</h5>
+    <h5> Successful Landing:  {{i.rocket.first_stage.cores[0].landing_intent}}</h5>
+    </div>
+  </div>
+  </div>
+<h6>Developed By: {{devloper}}</h6>
